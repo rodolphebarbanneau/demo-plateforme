@@ -1,0 +1,19 @@
+[project]
+name = "demo-plateforme"
+version = "0.1.0"
+description = "A demo project for the Plateforme framework"
+readme = "README.md"
+keywords = [
+    "plateforme",
+    "demo",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "plateforme @ git+https://github.com/plateformeio/plateforme@main#egg=plateforme[all]",
+    "faker",
+]
+
+[tool.plateforme.apps.default]
+scripts = {setup = "python server/setup.py"}
+build = ["setup"]
+start = "server.main:app --port 8001"

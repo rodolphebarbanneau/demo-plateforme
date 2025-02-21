@@ -1,0 +1,7 @@
+[plateforme]
+name = "users"
+description = "The users package"
+keywords = ["plateforme", "demo", "package", "users"]
+
+[plateforme.package]
+namespace = "users"
