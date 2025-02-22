@@ -11,11 +11,11 @@ uv sync
 ### Setup the server
 
 ```bash
-plateforme build
+uv run plateforme build
 ```
 
 ### Start the server
 
 ```bash
-plateforme start --reload
+uv run plateforme start --reload
 ```
