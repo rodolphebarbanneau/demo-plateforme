@@ -10,10 +10,12 @@ from .utils import UserRole
 class User(CRUDResource, Auditable):
     username: str = Field(unique=True, max_length=50)
     email: Email = Field(unique=True)
-    display_name: str = Field(max_length=200)
-    password: SecretStr = Field(unique=True)
-    role: UserRole = Field(default=UserRole.REGULAR, init=False)
+    password: str = Field(unique=True)
+    role: str = Field(default='regular', init=False)
+    # TODO: password: SecretStr = Field(unique=True)
+    # TODO: role: UserRole = Field(default=UserRole.REGULAR, init=False)
 
+    display_name: str | None = Field(default=None, max_length=200)
     bio: str | None = Field(default=None, max_length=500)
     profile_image: str | None = Field(default=None)
     header_image: str | None = Field(default=None)

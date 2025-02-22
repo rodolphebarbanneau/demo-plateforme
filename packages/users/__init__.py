@@ -1,1 +1,1 @@
-from . import users as users
+from .users import User as User

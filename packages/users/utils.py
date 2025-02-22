@@ -1,7 +1,7 @@
-from enum import Enum, auto
+from enum import StrEnum
 
 
-class UserRole(Enum):
-    REGULAR = auto()
-    VERIFIED = auto()
-    ADMIN = auto()
+class UserRole(StrEnum):
+    REGULAR = 'regular'
+    VERIFIED = 'verified'
+    ADMIN = 'admin'
