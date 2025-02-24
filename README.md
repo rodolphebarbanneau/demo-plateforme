@@ -41,7 +41,7 @@ Plateforme('plateforme-demo-application')
 
 >>> with app.session() as session:
 ...     session.query(User).all()
-[User(id=1, username='john', email='john@ex.com', password='123')]
+[User(id=1, username='john', email='john@ex.com', password=SecretStr('**********'))]
 
 >>> plateforme
 <module 'plateforme' from '...'>
