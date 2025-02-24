@@ -4,4 +4,4 @@ description = "The social package"
 keywords = ["plateforme", "demo", "package", "social"]
 
 [plateforme.package]
-api_services = false
+namespace = "social"

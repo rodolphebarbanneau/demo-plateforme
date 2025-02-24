@@ -43,6 +43,17 @@ Plateforme('plateforme-demo-application')
 ...     session.query(User).all()
 [User(id=1, username='john', email='john@ex.com', password=SecretStr('**********'))]
 
+>>> from packages.social import Tweet
+... with app.session() as session:
+...     tweet = Tweet(owner='1', content='My first tweet')
+...     tweet = session.merge(tweet)
+...     session.add(tweet)
+...     session.commit()
+
+>>> with app.session() as session:
+...     session.query(Tweet).all()
+[Tweet(id=1)]
+
 >>> plateforme
 <module 'plateforme' from '...'>
 

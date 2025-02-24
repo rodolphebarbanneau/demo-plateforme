@@ -8,6 +8,7 @@ from .utils import UserRole
 
 
 class User(CRUDResource, Auditable):
+    """User resource."""
     username: str = Field(unique=True, max_length=50)
     email: Email = Field(unique=True)
     password: SecretStr = Field(unique=True)
@@ -21,7 +22,7 @@ class User(CRUDResource, Auditable):
     website: str | None = None
     birth_date: date | None = None
 
-    followers: set['User'] = Field(default_factory=set, association_alias='user_followers', init=False)
+    followers: set['User'] = Field(default_factory=set, association_alias='user_follower', init=False)
     following: set['User'] = Field(default_factory=set, association_alias='user_following', init=False)
 
     users_blocked: set['User'] = Field(default_factory=set, association_alias='user_blocked', init=False)

@@ -32,7 +32,7 @@ AUTO_IMPORT_DEPENDENCIES = True
 AUTO_IMPORT_NAMESPACES = True
 
 NAMESPACES = [
-    ('users', {'alias': ''}),
+    ('social', {'alias': ''}),
 ]
 
 PACKAGES = [
