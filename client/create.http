@@ -1,0 +1,14 @@
+POST http://localhost:8001/social/tweets HTTP/1.1
+Content-Type: application/json
+
+{
+  "owner_id": 1,
+  "content": "Hello, world!"
+}
+
+###
+
+POST http://localhost:8001/social/tweets/11/retweet HTTP/1.1
+Content-Type: application/json
+
+1
