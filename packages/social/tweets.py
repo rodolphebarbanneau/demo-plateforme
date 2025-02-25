@@ -1,7 +1,7 @@
 from typing import Self
 
 from plateforme.resources import Auditable, BaseResource, CRUDResource, Field
-from plateforme.api import AsyncSessionDep, Body, Key, route
+from plateforme.api import AsyncSessionDep, Body, Id, route
 
 from packages.users import User
 
@@ -35,7 +35,7 @@ class Tweet(CRUDResource, Auditable):
 
     @route.post()
     @classmethod
-    async def retweet(cls, session: AsyncSessionDep, owner_id: Key[User] = Body(), tweet_id: Key[Self] = Body()) -> Self:
+    async def retweet(cls, session: AsyncSessionDep, owner_id: Id[User] = Body(), tweet_id: Id[Self] = Body()) -> Self:
         owner = await owner_id.resolve(session)
         tweet = await tweet_id.resolve(session)
         retweet = cls(
@@ -49,7 +49,7 @@ class Tweet(CRUDResource, Auditable):
 
     @route.post('')
     @classmethod
-    async def create(cls, session: AsyncSessionDep, owner_id: Key[User] = Body(), content: str = Body()) -> Self:
+    async def create(cls, session: AsyncSessionDep, owner_id: Id[User] = Body(), content: str = Body()) -> Self:
         owner = await owner_id.resolve(session)
         tweet = cls(
             owner=owner,

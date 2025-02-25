@@ -4,8 +4,10 @@
 
 ### Install dependencies
 
+> Plateforme dependency targets the main branch of the framework repository!
+
 ```bash
-uv sync
+uv sync -U
 ```
 
 ### Get help

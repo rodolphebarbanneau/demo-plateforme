@@ -1,3 +1,16 @@
+POST http://localhost:8001/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "payload": {
+    "username": "jane",
+    "email": "jane@ex.com",
+    "password": "123"
+  }
+}
+
+###
+
 POST http://localhost:8001/social/tweets HTTP/1.1
 Content-Type: application/json
 
@@ -8,7 +21,10 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8001/social/tweets/11/retweet HTTP/1.1
+POST http://localhost:8001/social/tweets/retweet HTTP/1.1
 Content-Type: application/json
 
-1
+{
+  "owner_id": 1,
+  "tweet_id": 1
+}

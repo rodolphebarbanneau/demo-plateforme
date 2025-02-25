@@ -37,6 +37,7 @@ class User(CRUDResource, Auditable):
 
     class Read:
         __include__ = [
+            'id',
             'username',
             'display_name',
             'bio',
