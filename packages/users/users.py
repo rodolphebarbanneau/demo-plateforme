@@ -1,4 +1,3 @@
-
 from datetime import date, datetime
 
 from plateforme.resources import Auditable, CRUDResource, Field

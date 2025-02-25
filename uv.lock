@@ -138,7 +138,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "faker" },
-    { name = "plateforme", extras = ["all"], git = "https://github.com/plateformeio/plateforme?rev=main" },
+    { name = "plateforme", extras = ["all"] },
 ]
 
 [[package]]
@@ -380,8 +380,8 @@ wheels = [
 
 [[package]]
 name = "plateforme"
-version = "0.1.0a2"
-source = { git = "https://github.com/plateformeio/plateforme?rev=main#dcfa4a0199deee5881d40132f6cc3363632bd9ec" }
+version = "0.1.0a3"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiosqlite" },
     { name = "alembic" },
@@ -391,6 +391,10 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "python-dotenv" },
     { name = "sqlalchemy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/2c/7c/a0029b7a6fcc005a6421c1440ee01136388a52ca77981c36b289f1319bd8/plateforme-0.1.0a3.tar.gz", hash = "sha256:b674f5950d347c4b58529aaa0e548535f336594ac49af07b2d90cd1ba627f4e4", size = 331904 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d2/b7/b06ea31161b1bc7effe8ba81a2c529d91f73506dfe476925fd1bd27c14ac/plateforme-0.1.0a3-py3-none-any.whl", hash = "sha256:3d79219083cad882e310b9023e33d081fc7b83b62d111b22c575702a9968f4b4", size = 408273 },
 ]
 
 [package.optional-dependencies]
