@@ -8,6 +8,13 @@
 uv sync
 ```
 
+### Get help
+
+```bash
+uv run plateforme --help
+uv run plateforme [command] --help
+```
+
 ### Setup the server
 
 ```bash
