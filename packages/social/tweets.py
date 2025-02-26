@@ -1,7 +1,7 @@
 from typing import Self
 
-from plateforme.resources import Auditable, BaseResource, CRUDResource, Field
 from plateforme.api import AsyncSessionDep, Body, Id, route
+from plateforme.resources import Auditable, BaseResource, CRUDResource, Field
 
 from packages.users import User
 
@@ -35,28 +35,34 @@ class Tweet(CRUDResource, Auditable):
 
     @route.post()
     @classmethod
-    async def retweet(cls, session: AsyncSessionDep, owner_id: Id[User] = Body(), tweet_id: Id[Self] = Body()) -> Self:
+    async def retweet(cls, session: AsyncSessionDep, owner_id: Id[User] = Body(), tweet_id: Id[Self] = Body(), content: str = Body()) -> Self:
         owner = await owner_id.resolve(session)
         tweet = await tweet_id.resolve(session)
         retweet = cls(
             owner=owner,
-            content=tweet.content,
+            content=content,
             original_tweet=tweet,
             is_retweet=True,
         )
         session.add(retweet)
+        await session.commit(expire=False)
         return retweet
 
     @route.post('')
     @classmethod
-    async def create(cls, session: AsyncSessionDep, owner_id: Id[User] = Body(), content: str = Body()) -> Self:
-        owner = await owner_id.resolve(session)
+    async def create(cls, owner_id: Id[User] = Body(), content: str = Body()) -> Self:
         tweet = cls(
-            owner=owner,
+            owner=owner_id,
             content=content,
         )
-        session.add(tweet)
-        return tweet
+        return await tweet.resource_add(save=True, merge=True)
+
+    class Read:
+        __include__ = [
+            'id',
+            'content',
+            'is_retweet',
+        ]
 
 
 class Media(BaseResource):

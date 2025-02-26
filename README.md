@@ -49,8 +49,13 @@ Plateforme('plateforme-demo-application')
 ...     session.commit()
 
 >>> with app.session() as session:
-...     session.query(User).all()
-[User(id=1, username='john', email='john@ex.com', password=SecretStr('**********'))]
+...     users = session.query(User).all()
+
+>>> users
+[User(id=1, username='john', email='john@ex.com')]
+
+>>> users[0].password
+SecretStr('**********')
 
 >>> from packages.social import Tweet
 ... with app.session() as session:

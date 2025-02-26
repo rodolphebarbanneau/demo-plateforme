@@ -26,5 +26,6 @@ Content-Type: application/json
 
 {
   "owner_id": 1,
-  "tweet_id": 1
+  "tweet_id": 1,
+  "content": "Retweet!"
 }

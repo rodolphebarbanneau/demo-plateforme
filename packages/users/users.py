@@ -10,7 +10,7 @@ class User(CRUDResource, Auditable):
     """User resource."""
     username: str = Field(unique=True, max_length=50)
     email: Email = Field(unique=True)
-    password: SecretStr = Field(unique=True)
+    password: SecretStr
     role: UserRole = Field(default=UserRole.REGULAR, init=False)
 
     display_name: str | None = Field(default=None, max_length=200)
