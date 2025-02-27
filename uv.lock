@@ -381,7 +381,7 @@ wheels = [
 [[package]]
 name = "plateforme"
 version = "0.1.0a3"
-source = { git = "https://github.com/plateformeio/plateforme?rev=main#d7e6314c7f80abb62550c7cbab74b0a8c44d4313" }
+source = { git = "https://github.com/plateformeio/plateforme?rev=main#1ddbbbcd190eb24380a7b9aaf84ec76b0baebae6" }
 dependencies = [
     { name = "aiosqlite" },
     { name = "alembic" },
