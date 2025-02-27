@@ -58,10 +58,16 @@ class Tweet(CRUDResource, Auditable):
         return await tweet.resource_add(save=True, merge=True)
 
     class Read:
-        __include__ = [
+        __sort__ = [
             'id',
-            'content',
-            'is_retweet',
+            'likes_count',
+            'retweets_count',
+            'replies_count',
+            'views_count',
+        ]
+        __collect__ = [
+            {'include': {'name': ['id', 'content', 'is_retweet']}},
+            {'include': {'name': lambda x: x.endswith('_count')}},
         ]
 
 
