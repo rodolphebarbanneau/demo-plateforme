@@ -52,7 +52,7 @@ class Tweet(CRUDResource, Auditable):
     @classmethod
     async def create(cls, owner_id: Id[User] = Body(), content: str = Body()) -> Self:
         tweet = cls(
-            owner=owner_id,
+            owner=owner_id,  # type: ignore
             content=content,
         )
         return await tweet.resource_add(save=True, merge=True)
